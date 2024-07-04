@@ -167,7 +167,10 @@ CMD ["npm", "start"]
 - **ENV:** Sets an environment variable.
 - **COPY:** Copies files from the Docker host to the Docker image.
 
-
+### Create Docker image
+```sh
+docker build -t <image_name> .
+```
 
 
 ---
