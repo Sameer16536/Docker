@@ -119,5 +119,56 @@ Remove all unused data (containers, networks, images, and optionally volumes):
 docker system prune -a
 ```
 
+
+# What is a Dockerfile?
+
+A Dockerfile is a text document that contains all the commands a user could call on the command line to create an image. If you want to create an image from your own code that you can push to Docker Hub, you need to create a Dockerfile for your application.
+
+## How to Write a Dockerfile
+
+A Dockerfile consists of two main parts:
+
+1. **Base Image:** The starting point for your Docker image, usually an official image from Docker Hub.
+2. **Commands:** A series of instructions to configure the image, such as installing dependencies.
+
+
+
+Below is an example of a Dockerfile to containerize the backend app:
+
+```Dockerfile
+# Use the official Node.js image as the base image
+FROM node:14
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install the dependencies
+RUN npm install
+
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Define the command to run the app
+CMD ["npm", "start"]
+```
+
+### Common Dockerfile Commands
+
+- **WORKDIR:** Sets the working directory for any `RUN`, `CMD`, `ENTRYPOINT`, or `COPY` instructions that follow it.
+- **RUN:** Executes any commands in a new layer on top of the current image and commits the results.
+- **CMD:** Provides defaults for executing a container. There can only be one `CMD` instruction in a Dockerfile.
+- **EXPOSE:** Informs Docker that the container listens on the specified network ports at runtime.
+- **ENV:** Sets an environment variable.
+- **COPY:** Copies files from the Docker host to the Docker image.
+
+
+
+
 ---
 
