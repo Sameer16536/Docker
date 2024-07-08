@@ -172,6 +172,16 @@ CMD ["npm", "start"]
 docker build -t <image_name> .
 ```
 
+### Docker Layers:
+- **Layer 1:** The base image, which is the starting point for the Docker image.
+- **Layer 2:** The `WORKDIR` instruction, which sets the working directory for the
+Docker image.
+- **Layer 3:** The `COPY` instruction, which copies the application code to the working
+directory.
+- **Layer 4:** The `RUN` instruction, which installs the dependencies.
+- **Layer 5:** The `EXPOSE` instruction, which informs Docker that the container listens
+on the specified network ports at runtime.
+- **Layer 6:** The `CMD` instruction, which provides defaults for executing a container.
 
 ---
 
