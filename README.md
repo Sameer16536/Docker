@@ -183,5 +183,11 @@ directory.
 on the specified network ports at runtime.
 - **Layer 6:** The `CMD` instruction, which provides defaults for executing a container.
 
----
 
+### Docker Compose::
+- **docker-compose.yml:** The configuration file for the Docker Compose application.
+- **docker-compose up:** Starts the application and runs the containers defined in the configuration file.
+- **docker-compose down:** Stops the application and removes the containers defined in the configuration file.
+- **docker-compose ps:** Lists the containers defined in the configuration file.
+- **docker-compose logs:** Displays the logs for the containers defined in the configuration file.
+---
